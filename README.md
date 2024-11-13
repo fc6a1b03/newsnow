@@ -1,5 +1,5 @@
 # 变更内容
-- 仅对`server/utils/fetch.ts`进行修改，支持`env`的环境代理地址读取，无法读取到`proxyUrl`时则跳过代理
+- 仅对[fetch.ts](server/utils/fetch.ts)进行修改，支持`env`的环境代理地址读取，无法读取到`proxyUrl`时则跳过代理
 - 如果需要通过命令行动态配置代理，可以这样设置：
   ```bash
   export HTTP_PROXY=http://your-proxy-server:port
