@@ -3,7 +3,7 @@ import type { NewsItem } from "@shared/types"
 
 export default defineSource(async () => {
   const baseURL = "https://news.ycombinator.com"
-  const html: any = await myFetch(baseURL)
+  const html: any = await myFetch(baseURL, true)
   const $ = cheerio.load(html)
   const $main = $(".athing")
   const news: NewsItem[] = []
