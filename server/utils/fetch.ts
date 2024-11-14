@@ -18,6 +18,12 @@ const proxyUrl = process.env.HTTP_PROXY || process.env.HTTPS_PROXY
  * @param useProxy 使用代理，默认：false不使用
  */
 export const myFetch = (url: any, options = {}, useProxy = false) => {
+    // 判断参数个数和类型来决定是否启用代理
+    if (typeof options === 'boolean') {
+        // 如果 options 是 boolean，说明是调用 myFetch(url, useProxy)
+        useProxy = options;
+        options = {};
+    }
     return $fetch(url,
         {
             ...options,
