@@ -46,5 +46,5 @@ jobs:
             linux/arm64
           push: true
           tags: |
-            ghcr.io/fc6a1b03/mind-map:latest
-            ghcr.io/fc6a1b03/mind-map:${{ env.VERSION }}
+            ghcr.io/fc6a1b03/newsnow:latest
+            ghcr.io/fc6a1b03/newsnow:${{ env.VERSION }}
