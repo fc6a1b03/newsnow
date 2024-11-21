@@ -37,10 +37,8 @@ export function useSortable(props: SortableProps) {
     if (handleRef && nodeRef) {
       const cleanup = combine(
         draggable({
-        // use custom drag preview
-          element: handleRef,
-          // element: ref,
-          // dragHandle: handleRef,
+          element: nodeRef,
+          dragHandle: handleRef,
           getInitialData: () => ({ id: props.id, instanceId }),
           onGenerateDragPreview({ nativeSetDragImage, location }) {
             setCustomNativeDragPreview({

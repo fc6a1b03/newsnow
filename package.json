@@ -1,7 +1,7 @@
 {
   "name": "newsnow",
   "type": "module",
-  "version": "0.0.16",
+  "version": "0.0.18",
   "private": true,
   "packageManager": "pnpm@9.12.1",
   "author": {
@@ -104,6 +104,7 @@
     }
   },
   "resolutions": {
+    "cross-spawn": ">=7.0.5",
     "dayjs": "1.11.13",
     "picomatch": "^4.0.0"
   },

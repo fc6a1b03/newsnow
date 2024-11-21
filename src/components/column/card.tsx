@@ -34,7 +34,8 @@ export const CardWrapper = forwardRef<HTMLElement, ItemsProps>(({ id, isDragging
       ref={ref}
       className={$(
         "flex flex-col h-500px rounded-2xl p-4 cursor-default",
-        "backdrop-blur-5 transition-opacity-300",
+        // "backdrop-blur-5",
+        "transition-opacity-300",
         isDragging && "op-50",
         `bg-${sources[id].color}-500 dark:bg-${sources[id].color} bg-op-40!`,
       )}
@@ -140,10 +141,10 @@ function NewsCard({ id, setHandleRef }: NewsCardProps) {
             className={$("btn", isFocused ? "i-ph:star-fill" : "i-ph:star-duotone")}
             onClick={toggleFocus}
           />
+          {/* firefox cannot drag a button */}
           {setHandleRef && (
-            <button
+            <div
               ref={setHandleRef}
-              type="button"
               className={$("btn", "i-ph:dots-six-vertical-duotone", "cursor-grab")}
             />
           )}

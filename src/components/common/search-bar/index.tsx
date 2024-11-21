@@ -47,7 +47,7 @@ export function SearchBar() {
           title: source.title,
           column: source.column ? columns[source.column].zh : "未分类",
           name: source.name,
-          pinyin: pinyin?.[k as keyof typeof pinyin],
+          pinyin: pinyin?.[k as keyof typeof pinyin] ?? "",
         })))
     , [],
   )
