@@ -109,7 +109,7 @@ function NewsCard({ id, setHandleRef }: NewsCardProps) {
       <div className={$("flex justify-between mx-2 mt-0 mb-2 items-center")}>
         <div className="flex gap-2 items-center">
           <a
-            className={$("w-8 h-8 rounded-full bg-cover hover:animate-spin")}
+            className={$("w-8 h-8 rounded-full bg-cover")}
             target="_blank"
             href={sources[id].home}
             title={sources[id].desc}
@@ -228,7 +228,7 @@ function NewsUpdatedTime({ date }: { date: string | number }) {
 function NewsListHot({ items }: { items: NewsItem[] }) {
   const { width } = useWindowSize()
   return (
-    <>
+    <ol className="flex flex-col gap-2">
       {items?.map((item, i) => (
         <a
           href={width < 768 ? item.mobileUrl || item.url : item.url}
@@ -236,7 +236,7 @@ function NewsListHot({ items }: { items: NewsItem[] }) {
           key={item.id}
           title={item.extra?.hover}
           className={$(
-            "flex gap-2 items-center mb-2 items-stretch relative",
+            "flex gap-2 items-center items-stretch relative",
             "hover:bg-neutral-400/10 rounded-md pr-1 visited:(text-neutral-400)",
           )}
         >
@@ -254,7 +254,7 @@ function NewsListHot({ items }: { items: NewsItem[] }) {
           </span>
         </a>
       ))}
-    </>
+    </ol>
   )
 }
 

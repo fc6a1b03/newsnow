@@ -1,45 +1,42 @@
-import { useEffect } from "react"
 import { useRegisterSW } from "virtual:pwa-register/react"
+import { useMount } from "react-use"
 import { useToast } from "./useToast"
 
-const intervalMS = 60 * 60 * 1000
 export function usePWA() {
-  const {
-    needRefresh: [needRefresh, setNeedRefresh],
-    updateServiceWorker,
-  }
-  = useRegisterSW({
-    onRegisteredSW(swUrl, r) {
-      if (r) {
-        setInterval(async () => {
-          if (r.installing || !navigator) return
-
-          if ("connection" in navigator && !navigator.onLine) return
-
-          const resp = await fetch(swUrl, {
-            cache: "no-store",
-            headers: {
-              "cache": "no-store",
-              "cache-control": "no-cache",
-            },
-          })
-
-          if (resp?.status === 200) await r.update()
-        }, intervalMS)
-      }
-    },
-  })
   const toaster = useToast()
+  const { updateServiceWorker, needRefresh: [needRefresh] } = useRegisterSW()
 
-  useEffect(() => {
-    if (needRefresh) {
-      toaster("网站有更新，点击更新", {
-        action: {
-          label: "更新",
-          onClick: () => updateServiceWorker(true),
-        },
-        onDismiss: () => updateServiceWorker(true),
-      })
+  useMount(async () => {
+    const update = () => {
+      updateServiceWorker().then(() => localStorage.setItem("updated", "1"))
     }
-  }, [needRefresh, updateServiceWorker, setNeedRefresh, toaster])
+    await delay(1000)
+    if (localStorage.getItem("updated")) {
+      localStorage.removeItem("updated")
+      toaster("更新成功，赶快体验吧", {
+        action: {
+          label: "查看更新",
+          onClick: () => {
+            window.open(`${Homepage}/releases/tag/v${Version}`)
+          },
+        },
+      })
+    } else if (needRefresh) {
+      if (!navigator) return
+
+      if ("connection" in navigator && !navigator.onLine) return
+
+      const resp = await myFetch("/latest")
+
+      if (resp.v && resp.v !== Version) {
+        toaster("有更新，5 秒后自动更新", {
+          action: {
+            label: "立刻更新",
+            onClick: update,
+          },
+          onDismiss: update,
+        })
+      }
+    }
+  })
 }

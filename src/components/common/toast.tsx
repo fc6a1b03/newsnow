@@ -20,7 +20,7 @@ export function Toast() {
         width: WIDTH,
         left: center,
       }}
-      className="absolute top-0 z-99 flex flex-col gap-2"
+      className="absolute top-4 z-99 flex flex-col gap-2"
     >
       {
         toastItems.map(k => <Item key={k.id} info={k} />)
