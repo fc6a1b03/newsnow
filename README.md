@@ -6,7 +6,7 @@
   export HTTPS_PROXY=http://your-https-proxy-server:port
   ```
 # 部署
-> 如果使用`compose`则需自行修改镜像地址为`ghcr.io/fc6a1b03/newsnow:main`
+> 如果使用`compose`则需自行修改镜像地址为`ghcr.io/fc6a1b03/newsnow:latest`
 - docker pull ghcr.io/fc6a1b03/newsnow:main
 - docker run -d -p 4444:4444 -e INIT_TABLE=true -e ENABLE_CACHE=true -e HTTP_PROXY=http://your-proxy-server:port -e HTTPS_PROXY=http://your-proxy-server:port --restart=always ghcr.io/fc6a1b03/newsnow:main
 
