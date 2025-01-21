@@ -1,6 +1,6 @@
 import type { colors } from "unocss/preset-mini"
 import type { columns, fixedColumnIds } from "./metadata"
-import type { originSources } from "./sources"
+import type { originSources } from "./pre-sources"
 
 export type Color = "primary" | Exclude<keyof typeof colors, "current" | "inherit" | "transparent" | "black" | "white">
 
@@ -75,7 +75,7 @@ export interface Source {
   /**
    * @default false
    */
-  disable?: boolean
+  disable?: boolean | "cf"
   redirect?: SourceID
 }
 

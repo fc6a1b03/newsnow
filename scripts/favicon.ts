@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url"
 import { join } from "node:path"
 import { Buffer } from "node:buffer"
 import { consola } from "consola"
-import { originSources } from "../shared/sources"
+import { originSources } from "../shared/pre-sources"
 
 const projectDir = fileURLToPath(new URL("..", import.meta.url))
 const iconsDir = join(projectDir, "public", "icons")
@@ -29,7 +29,7 @@ async function main() {
       try {
         const icon = join(iconsDir, `${id}.png`)
         if (fs.existsSync(icon)) {
-          consola.info(`${id}: icon exists. skip.`)
+          // consola.info(`${id}: icon exists. skip.`)
           return
         }
         if (!source.home) return
