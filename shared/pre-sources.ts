@@ -46,6 +46,7 @@ export const originSources = {
     type: "realtime",
     column: "world",
     color: "red",
+    desc: "来自第三方网站: 早晨报",
     home: "https://www.zaobao.com",
   },
   "coolapk": {

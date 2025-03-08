@@ -14,7 +14,7 @@ const nitroOption: Parameters<typeof viteNitro>[0] = {
   sourceMap: false,
   database: {
     default: {
-      connector: "sqlite",
+      connector: "better-sqlite3",
     },
   },
   imports: {

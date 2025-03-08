@@ -36,6 +36,7 @@
   "zaobao": {
     "name": "联合早报",
     "type": "realtime",
+    "desc": "来自第三方网站: 早晨报",
     "column": "world",
     "home": "https://www.zaobao.com",
     "color": "red",
