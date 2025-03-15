@@ -32,7 +32,7 @@ export default defineConfig({
         imports: ["atom", "useAtom", "useAtomValue", "useSetAtom"],
       }],
       imports: [
-        { from: "clsx", name: "default", as: "$" },
+        { from: "clsx", name: "clsx", as: "$" },
         { from: "jotai/utils", name: "atomWithStorage" },
       ],
       dts: "imports.app.d.ts",

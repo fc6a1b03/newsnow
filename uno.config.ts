@@ -1,4 +1,4 @@
-import { defineConfig, presetIcons, presetUno, transformerDirectives, transformerVariantGroup } from "unocss"
+import { defineConfig, presetIcons, presetWind3, transformerDirectives, transformerVariantGroup } from "unocss"
 import { hex2rgba } from "@unocss/rule-utils"
 import { sources } from "./shared/sources"
 
@@ -6,7 +6,7 @@ export default defineConfig({
   mergeSelectors: false,
   transformers: [transformerDirectives(), transformerVariantGroup()],
   presets: [
-    presetUno(),
+    presetWind3(),
     presetIcons({
       scale: 1.2,
     }),
