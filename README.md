@@ -11,6 +11,8 @@
 - docker run -d -p 4444:4444 -e INIT_TABLE=true -e ENABLE_CACHE=true -e HTTP_PROXY=http://your-proxy-server:port -e HTTPS_PROXY=http://your-proxy-server:port --restart=always ghcr.io/fc6a1b03/newsnow:main
 
 # NewsNow
+<a href="https://hellogithub.com/repository/c2978695e74a423189e9ca2543ab3b36" target="_blank"><img src="https://api.hellogithub.com/v1/widgets/recommend.svg?rid=c2978695e74a423189e9ca2543ab3b36&claim_uid=SMJiFwlsKCkWf89&theme=small" alt="Featured｜HelloGitHub" /></a>
+
 ![](screenshots/preview-1.png)
 
 ![](screenshots/preview-2.png)
